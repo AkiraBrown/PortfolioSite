@@ -1,12 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Spinner from "./Component/common/Spinner/Spinner";
-import ModeToggler from "./Component/common/ModeToggle/ModeToggler";
-import Nav from "./Component/common/Nav/Nav";
+import Spinner from "./Components/Common/Spinner/Spinner";
+import Nav from "./Components/Common/Nav/Nav";
+import ModeToggler from "./Components/Common/ModeToggler/ModeToggler";
+const HomePage = lazy(() => import("./Components/Pages/HomePage/HomePage"));
+
 function App() {
-  const HomePage = lazy(() => import("./Component/Pages/HomePage/HomePage"));
-
   return (
     <>
       <Suspense fallback={<Spinner />}>
