@@ -1,1 +1,2 @@
+export HUSKY=0
 npm test
