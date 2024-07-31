@@ -15,10 +15,10 @@ function Nav() {
           <NavLink className="nav-link fw-bold py-1 px-3" to={"/projects"}>
             Projects
           </NavLink>
-          <NavLink className="nav-link fw-bold py-1 px-3" to={"/blog"}>
+          <NavLink className="nav-link fw-bold py-1 px-3" to={"/blogs"}>
             Blog
           </NavLink>
-          <NavLink className="nav-link fw-bold py-1 px-3" to={"/Contact"}>
+          <NavLink className="nav-link fw-bold py-1 px-3" to={"/contact"}>
             Contact
           </NavLink>
         </nav>

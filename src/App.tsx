@@ -11,6 +11,12 @@ const ProjectsPage = lazy(
   () => import("./Components/Pages/ProjectsPage/ProjectsPage")
 );
 const BlogsPage = lazy(() => import("./Components/Pages/BlogsPage/BlogsPage"));
+const ContactPage = lazy(
+  () => import("./Components/Pages/ContactPage/ContactPage")
+);
+const BlogIndivPage = lazy(
+  () => import("./Components/Pages/BlogIndivPage/BlogIndivPage")
+);
 
 function App() {
   return (
@@ -24,6 +30,8 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/blogs" element={<BlogsPage />} />
+                <Route path="/blogs/:id" element={<BlogIndivPage />} />
+                <Route path="/contact" element={<ContactPage />} />
               </Routes>
               <ModeToggler />
             </div>
