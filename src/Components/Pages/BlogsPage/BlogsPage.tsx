@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, FC } from "react";
+
 import { getAllBlogs } from "../../Common/API/API";
 function BlogsPage() {
   const [blogsArr, setBlogsArr] = useState([]);
@@ -16,7 +17,7 @@ function BlogsPage() {
   }
 
   return (
-    <main className="px-3 mt-5">
+    <main>
       <ul></ul>
     </main>
   );

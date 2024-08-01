@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function BlogsPageCard() {
   return (
-    <div className="card text-center">
+    <div>
       <div className="card-header">Placeholder</div>
       <div className="card-body">
         <Link to={""}>Read</Link>
