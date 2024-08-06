@@ -73,8 +73,8 @@ function HomePage() {
           <p className="text-sm">Photos</p>
         </div>
         <div
-          className="bg-cover mt-4 h-full pb-4 rounded"
-          style={{ backgroundImage: "url(/Assets/HomePic.png)" }}
+          className="bg-cover mt-4  pb-4 rounded p-10"
+          style={{ backgroundImage: "url(/Assets/HomePic.png)", height: "90%" }}
         >
           <div className="bg-black bg-opacity-50 p-10 rounded text-center h-full">
             <h1 className="text-5xl font-bold mb-4">Welcome To My Portfolio</h1>

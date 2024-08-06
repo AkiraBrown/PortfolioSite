@@ -1,26 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { GetOneBlog } from "../../Common/API/API.tsx";
-// interface BlogInfo {
-//   id: number | string;
-//   title: string;
-//   date_uploaded: string;
-//   file_path: string;
-// }
+import { getBlogContent } from "../../Common/API/HTMLAPI";
+import DOMPurify from "dompurify";
 
 function BlogIndivPage() {
-  const [blogInfo, setBlogInfo] = useState({
-    id: "0",
-    title: "",
-    date_uploaded: "",
-    file_path: "",
-  });
-  interface BlogData {
-    id: string | number;
-    title: string;
-    date_uploaded: string;
-    file_path: string;
-  }
+  const [blogInfo, setBlogInfo] = useState("");
+
   const { id } = useParams<string>();
   useEffect(() => {
     if (id) {
@@ -29,17 +14,37 @@ function BlogIndivPage() {
   }, [id]);
   async function fetchBlogData(passedID: string) {
     try {
-      const response = (await GetOneBlog(passedID)) as BlogData;
-      setBlogInfo(response);
+      const response = await getBlogContent(passedID);
+      const sanitizedHTML = DOMPurify.sanitize(response);
+      const styledDOM = applyStyles(sanitizedHTML);
+      setBlogInfo(styledDOM);
     } catch (error) {
       console.log(error);
     }
   }
+  function applyStyles(str: string) {
+    const replacements: { [key: string]: string } = {
+      "<hr>": "<hr/>",
+      '<code class="language-javascript">':
+        '<code class="language-javascript">',
+      "<pre>": '<pre class="rounded bg-slate-700 p-3 shadow-inner">',
+      "<p>": '<p class="p-5">',
+      "<h1>": '<h1 class="font-bold text-lg text-center">',
+      "<ol>": '<ol class="p-5">',
+      "<a ":
+        '<a target="_blank" rel="noreferrer noopener" class="hover:bg-sky-700 active:bg-violet-700" ',
+      "<img ": '<img class="self-center"',
+    };
+
+    const regex = new RegExp(Object.keys(replacements).join("|"), "g");
+    return str.replace(regex, (matched) => replacements[matched]);
+  }
 
   return (
-    <div>
-      <p>{blogInfo?.title}</p>
-    </div>
+    <div
+      dangerouslySetInnerHTML={{ __html: blogInfo }}
+      className="font-mono col-span-4"
+    />
   );
 }
 

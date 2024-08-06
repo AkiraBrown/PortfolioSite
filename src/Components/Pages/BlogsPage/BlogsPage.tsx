@@ -1,26 +1,35 @@
-import { useEffect, useState, FC } from "react";
+import { useEffect } from "react";
 
-import { getAllBlogs } from "../../Common/API/API";
+// import { getAllBlogs } from "../../Common/API/API";
+import { getBlogContent } from "../../Common/API/HTMLAPI";
 function BlogsPage() {
-  const [blogsArr, setBlogsArr] = useState([]);
+  // const [blogsArr, setBlogsArr] = useState([]);
+  // useEffect(() => {
+  //   GetAllBlogPost();
+  // }, []);
+  // async function GetAllBlogPost() {
+  //   try {
+  //     const response = await getAllBlogs();
+  //     console.log(response);
+  //     setBlogsArr(response);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
   useEffect(() => {
-    GetAllBlogPost();
+    GetHTMLContent();
   }, []);
-  async function GetAllBlogPost() {
+
+  async function GetHTMLContent() {
     try {
-      const response = await getAllBlogs();
+      const response = await getBlogContent("1");
       console.log(response);
-      setBlogsArr(response);
     } catch (error) {
       console.error(error);
     }
   }
 
-  return (
-    <main>
-      <ul></ul>
-    </main>
-  );
+  return <main></main>;
 }
 
 export default BlogsPage;
