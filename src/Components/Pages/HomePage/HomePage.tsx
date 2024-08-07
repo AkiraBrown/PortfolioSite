@@ -89,7 +89,7 @@ function HomePage() {
         </div>
       </section>
       {/* AboutSec IN terminal */}
-      <section className="bg-black text-white p-6 rounded-lg max-w-full font-mono col-span-1 md:col-span-2 justify-center items-center">
+      <section className="bg-black text-white p-6 rounded-lg max-w-full font-mono col-span-1 md:col-span-2 justify-center items-center min-h-screen">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           <div className="flex space-x-2 text-red-500">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>

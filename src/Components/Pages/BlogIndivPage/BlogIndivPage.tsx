@@ -29,11 +29,13 @@ function BlogIndivPage() {
         '<code class="language-javascript">',
       "<pre>": '<pre class="rounded bg-slate-700 p-3 shadow-inner">',
       "<p>": '<p class="p-5">',
-      "<h1>": '<h1 class="font-bold text-lg text-center">',
+      "<h1>": '<h1 class="font-bold text-xl text-center">',
       "<ol>": '<ol class="p-5">',
       "<a ":
-        '<a target="_blank" rel="noreferrer noopener" class="hover:bg-sky-700 active:bg-violet-700" ',
-      "<img ": '<img class="self-center"',
+        '<a target="_blank" rel="noreferrer noopener" class="hover:bg-sky-700 hover:uppercase hover:underline" ',
+      "<img ": '<img class="text-center"',
+      "<h3>": '<h3 class="font-bold text-md text-center">',
+      "<li>": '<li class="list-disc justify-self-center">',
     };
 
     const regex = new RegExp(Object.keys(replacements).join("|"), "g");

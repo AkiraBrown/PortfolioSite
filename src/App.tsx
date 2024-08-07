@@ -18,7 +18,6 @@ const ContactPage = lazy(
 const BlogIndivPage = lazy(
   () => import("./Components/Pages/BlogIndivPage/BlogIndivPage")
 );
-const TestPage = lazy(() => import("./Components/Pages/TestAreaPage/TestPage"));
 function App() {
   return (
     <>
@@ -32,7 +31,6 @@ function App() {
               <Route path="/blogs" element={<BlogsPage />} />
               <Route path="/blogs/:id" element={<BlogIndivPage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/test-area" element={<TestPage />} />
             </Routes>
             {/* <ModeToggler /> */}
             <Footer />
