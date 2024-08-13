@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Spinner from "./Components/Common/Spinner/Spinner";
 import Nav from "./Components/Common/Nav/Nav";
-// import ModeToggler from "./Components/Common/ModeToggler/ModeToggler";
 import Footer from "./Components/Common/Footer/Footer";
 
 //Page Imports
@@ -32,7 +31,6 @@ function App() {
               <Route path="/blogs/:id" element={<BlogIndivPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
-            {/* <ModeToggler /> */}
             <Footer />
           </div>
         </Router>
