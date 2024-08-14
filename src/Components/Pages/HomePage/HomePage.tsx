@@ -48,7 +48,8 @@ function HomePage() {
         <div
           className="bg-cover mt-4  pb-4 rounded p-10"
           style={{
-            backgroundImage: "url(../../../../Assets/HomePic.png)",
+            backgroundImage:
+              "url(https://res.cloudinary.com/dybgevnp0/image/upload/v1723647464/HomePic_qbvxys.png)",
             height: "90%",
           }}
         >
