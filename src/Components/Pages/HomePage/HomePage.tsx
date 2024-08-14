@@ -33,6 +33,7 @@ function HomePage() {
       img: "https://placehold.co/600x400",
     },
   ]);
+
   return (
     <>
       <section className="bg-black text-white p-6 rounded-lg max-w-full font-mono col-span-2 md:col-span-2 min-h-screen animate-fade-up">
@@ -46,7 +47,10 @@ function HomePage() {
         </div>
         <div
           className="bg-cover mt-4  pb-4 rounded p-10"
-          style={{ backgroundImage: "url(/Assets/HomePic.png)", height: "90%" }}
+          style={{
+            backgroundImage: "url(../../../../Assets/HomePic.png)",
+            height: "90%",
+          }}
         >
           <div className="bg-black bg-opacity-50 p-10 rounded text-center h-full">
             <h1 className="text-5xl font-bold mb-4">Welcome To My Portfolio</h1>
@@ -60,7 +64,7 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <section className="bg-black text-white p-6 rounded-lg max-w-full font-mono col-span-1 md:col-span-2 justify-center items-center min-h-screen ease-in">
+      <section className="bg-black text-white p-6 rounded-lg max-w-full font-mono col-span-1 md:col-span-2 justify-center items-center min-h-screen animate-fade-up">
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           <div className="flex space-x-2 text-red-500">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
