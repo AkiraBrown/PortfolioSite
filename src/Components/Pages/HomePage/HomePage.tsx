@@ -130,6 +130,9 @@ function HomePage() {
                   <p className="text-green-400 mb-6 animate-fade-up">
                     $ ~/{element.name}/<span className="animate-pulse">.</span>
                   </p>
+                  <p className="pb-2 text-yellow-400">{`${new Date(
+                    element.updated_at
+                  )}`}</p>
                   <p className="">
                     {element.description
                       ? element.description
