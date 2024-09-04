@@ -4,19 +4,20 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Spinner from "./Components/Common/Spinner/Spinner";
 import Nav from "./Components/Common/Nav/Nav";
 import Footer from "./Components/Common/Footer/Footer";
+import ScrollToTop from "./Components/Common/ScrollTop/ScrollToTop";
 
 //Page Imports
 const HomePage = lazy(() => import("./Components/Pages/HomePage/HomePage"));
-const ProjectsPage = lazy(
-  () => import("./Components/Pages/ProjectsPage/ProjectsPage")
-);
-const BlogsPage = lazy(() => import("./Components/Pages/BlogsPage/BlogsPage"));
-const ContactPage = lazy(
-  () => import("./Components/Pages/ContactPage/ContactPage")
-);
-const BlogIndivPage = lazy(
-  () => import("./Components/Pages/BlogIndivPage/BlogIndivPage")
-);
+// const ProjectsPage = lazy(
+//   () => import("./Components/Pages/ProjectsPage/ProjectsPage")
+// );
+// const BlogsPage = lazy(() => import("./Components/Pages/BlogsPage/BlogsPage"));
+// const ContactPage = lazy(
+//   () => import("./Components/Pages/ContactPage/ContactPage")
+// );
+// const BlogIndivPage = lazy(
+//   () => import("./Components/Pages/BlogIndivPage/BlogIndivPage")
+// );
 function App() {
   return (
     <>
@@ -26,11 +27,12 @@ function App() {
             <Nav />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/projects" element={<ProjectsPage />} />
+              {/* <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/blogs" element={<BlogsPage />} />
               <Route path="/blogs/:id" element={<BlogIndivPage />} />
-              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/contact" element={<ContactPage />} /> */}
             </Routes>
+            <ScrollToTop />
             <Footer />
           </div>
         </Router>

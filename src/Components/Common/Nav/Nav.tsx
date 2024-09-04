@@ -1,21 +1,26 @@
-import { NavLink } from "react-router-dom";
 function Nav() {
   return (
     <nav className="bg-gray-700 shadow-lg col-span-1 rounded md:col-span-4">
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center py-5">
-        <NavLink to={"/"} className={"text-xl font-bold"}>
+        <a href={"/"} className={"text-xl font-bold"}>
           Akira Brown
-        </NavLink>
+        </a>
         <div className="hidden md:flex space-x-4">
-          <NavLink className="hover:text-teal-500" to={"/projects"}>
+          <a className="hover:text-teal-500" href={"#projects"}>
             Projects
-          </NavLink>
-          <NavLink className="hover:text-teal-500" to={"/blogs"}>
-            Blogs
-          </NavLink>
-          <NavLink className="hover:text-teal-500" to={"/contact"}>
+          </a>
+          <a className="hover:text-teal-500" href={"#about"}>
+            About
+          </a>
+          <a className="hover:text-teal-500" href={"#resume"}>
+            Resume
+          </a>
+          <a className="hover:text-teal-500" href={"#education"}>
+            Education
+          </a>
+          <a className="hover:text-teal-500" href={"#contact"}>
             Contact
-          </NavLink>
+          </a>
         </div>
       </div>
     </nav>

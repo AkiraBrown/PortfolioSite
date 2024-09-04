@@ -11,50 +11,20 @@ function HomePage() {
   async function FetchData() {
     try {
       const response = await axios.get(
-        "https://api.github.com/users/akirabrown/repos"
+        "https://api.github.com/users/akirabrown/repos?sort=updated-desc&per_page=9"
       );
-      console.log(response.data);
+      // console.log(response.data);
       setProjects(response.data);
     } catch (error) {
       console.log(error);
     }
   }
-  // const [projects] = useState([
-  //   {
-  //     id: 1,
-  //     title: "PR1",
-  //     description: "Some Text",
-  //     img: "https://placehold.co/600x400",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "PR2",
-  //     description: "Some Text",
-  //     img: "https://placehold.co/600x400",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "PR3",
-  //     description: "Some Text",
-  //     img: "https://placehold.co/600x400",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "PR4",
-  //     description: "Some Text",
-  //     img: "https://placehold.co/600x400",
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "PR5",
-  //     description: "Some Text",
-  //     img: "https://placehold.co/600x400",
-  //   },
-  // ]);
-
   return (
     <>
-      <section className="bg-black text-white p-6 rounded-lg max-w-full font-mono col-span-2 md:col-span-2 min-h-screen animate-fade-up">
+      <section
+        id="hero-image"
+        className="bg-black text-white p-6 rounded-lg max-w-full font-mono col-span-2 md:col-span-2 min-h-screen animate-fade-up"
+      >
         <div className="flex justify-between items-center">
           <div className="flex space-x-2 text-red-500">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -76,14 +46,19 @@ function HomePage() {
             <p className="text-xl mb-8">Showcasing my work</p>
             <NavLink
               className="bg-teal-500 text-white py-3 px-6 rounded hover:bg-teal-600"
-              to={"/projects"}
+              to={"https://github.com/AkiraBrown"}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               View My Work
             </NavLink>
           </div>
         </div>
       </section>
-      <section className="bg-black text-white p-6 rounded-lg max-w-full font-mono col-span-1 md:col-span-2 justify-center items-center min-h-screen animate-fade-up">
+      <section
+        id="about"
+        className="bg-black text-white p-6 rounded-lg max-w-full font-mono col-span-1 md:col-span-2 justify-center items-center min-h-screen animate-fade-up"
+      >
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           <div className="flex space-x-2 text-red-500">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -110,38 +85,85 @@ function HomePage() {
             $ What are you working on<span className="animate-ping">.</span>
           </p>
           <p className="text-white mb-6 animate-fade-up">
-            Currently, I'm working on a full-stack web app that allows me to
-            store markdown files on a backend server and display them on my
-            portfolio site, showcasing my research and learning journey. I'm
-            particularly passionate about backend development because it allows
-            me to explore the intricate workings of computer systems and
-            challenges my problem-solving creativity.
+            Currently, I'm learning about AI through use of Python and learning
+            about tensors.
           </p>
         </div>
       </section>
-      <section className="py-12 bg-gray-900 col-span-1 md:col-span-4">
+      <section
+        id="projects"
+        className="py-12 bg-gray-900 col-span-1 md:col-span-4"
+      >
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-6">My Work</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 overflow-auto">
             {projects.map((element, idx) => (
-              <div
-                key={element?.id || idx}
-                className={`bg-gray-800 rounded-lg shadow-lg overflow-hidden`}
-              >
-                <img
-                  src={"https://placehold.co/600x400"}
-                  alt={element.name}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold">{element.name}</h3>
-                  {element.description && (
-                    <p className="mt-2 text-gray-400">{element.description}</p>
-                  )}
+              // <div
+              //   key={element?.id || idx}
+              //   className={`bg-gray-800 rounded-lg shadow-lg overflow-hidden`}
+              // >
+              //   <img
+              //     src={"https://placehold.co/600x400"}
+              //     alt={element.name}
+              //     className="w-full h-48 object-cover"
+              //   />
+              //   <div className="p-6">
+              //     <h3 className="text-xl font-bold">{element.name}</h3>
+              //     {element.description && (
+              //       <p className="mt-2 text-gray-400">{element.description}</p>
+              //     )}
+              //   </div>
+              // </div>
+              <div className="bg-black text-white p-6 rounded-lg font-mono animate-fade-up max-w-full ">
+                <div
+                  key={element.id || idx}
+                  className="flex justify-between items-center"
+                >
+                  <div className="flex space-x-2 text-red-500">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <p className="text-sm text-ellipsis">{element.name}</p>
+                </div>
+                <div className="mt-4">
+                  <p className="text-green-400 mb-6 animate-fade-up">
+                    $ ~/{element.name}/<span className="animate-pulse">.</span>
+                  </p>
+                  <p className="">
+                    {element.description
+                      ? element.description
+                      : element.html_url}
+                  </p>
+                  <a
+                    href={element.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline underline-offset-1 text-ellipses"
+                  >
+                    {"> More..."}
+                  </a>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+      <section
+        id="resume"
+        className="py-12 bg-gray-900 col-span-1 md:col-span-4"
+      >
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-6">Resume</h2>
+          <p></p>
+        </div>
+      </section>
+      <section
+        id="contact"
+        className="py-12 bg-gray-900 col-span-1 md:col-span-4"
+      >
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-6">Contact</h2>
         </div>
       </section>
     </>
