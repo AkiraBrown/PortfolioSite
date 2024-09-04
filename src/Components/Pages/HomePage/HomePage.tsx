@@ -1,38 +1,56 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Project } from "./types/HomePageTypes";
 function HomePage() {
-  const [projects] = useState([
-    {
-      id: 1,
-      title: "PR1",
-      description: "Some Text",
-      img: "https://placehold.co/600x400",
-    },
-    {
-      id: 2,
-      title: "PR2",
-      description: "Some Text",
-      img: "https://placehold.co/600x400",
-    },
-    {
-      id: 3,
-      title: "PR3",
-      description: "Some Text",
-      img: "https://placehold.co/600x400",
-    },
-    {
-      id: 4,
-      title: "PR4",
-      description: "Some Text",
-      img: "https://placehold.co/600x400",
-    },
-    {
-      id: 5,
-      title: "PR5",
-      description: "Some Text",
-      img: "https://placehold.co/600x400",
-    },
-  ]);
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    FetchData();
+  }, []);
+  async function FetchData() {
+    try {
+      const response = await axios.get(
+        "https://api.github.com/users/akirabrown/repos"
+      );
+      console.log(response.data);
+      setProjects(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  // const [projects] = useState([
+  //   {
+  //     id: 1,
+  //     title: "PR1",
+  //     description: "Some Text",
+  //     img: "https://placehold.co/600x400",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "PR2",
+  //     description: "Some Text",
+  //     img: "https://placehold.co/600x400",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "PR3",
+  //     description: "Some Text",
+  //     img: "https://placehold.co/600x400",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "PR4",
+  //     description: "Some Text",
+  //     img: "https://placehold.co/600x400",
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "PR5",
+  //     description: "Some Text",
+  //     img: "https://placehold.co/600x400",
+  //   },
+  // ]);
 
   return (
     <>
@@ -105,19 +123,21 @@ function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-6">My Work</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 overflow-auto">
-            {projects.map((project) => (
+            {projects.map((element, idx) => (
               <div
-                key={project.id}
+                key={element?.id || idx}
                 className={`bg-gray-800 rounded-lg shadow-lg overflow-hidden`}
               >
                 <img
-                  src={project.img}
-                  alt={project.title}
+                  src={"https://placehold.co/600x400"}
+                  alt={element.name}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-bold">{project.title}</h3>
-                  <p className="mt-2 text-gray-400">{project.description}</p>
+                  <h3 className="text-xl font-bold">{element.name}</h3>
+                  {element.description && (
+                    <p className="mt-2 text-gray-400">{element.description}</p>
+                  )}
                 </div>
               </div>
             ))}
