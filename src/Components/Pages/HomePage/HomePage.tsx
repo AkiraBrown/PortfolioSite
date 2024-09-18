@@ -13,7 +13,6 @@ function HomePage() {
       const response = await axios.get(
         "https://api.github.com/users/akirabrown/repos?sort=updated-desc&per_page=9"
       );
-      // console.log(response.data);
       setProjects(response.data);
     } catch (error) {
       console.log(error);
@@ -98,22 +97,6 @@ function HomePage() {
           <h2 className="text-3xl font-bold text-center mb-6">My Work</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 overflow-auto">
             {projects.map((element, idx) => (
-              // <div
-              //   key={element?.id || idx}
-              //   className={`bg-gray-800 rounded-lg shadow-lg overflow-hidden`}
-              // >
-              //   <img
-              //     src={"https://placehold.co/600x400"}
-              //     alt={element.name}
-              //     className="w-full h-48 object-cover"
-              //   />
-              //   <div className="p-6">
-              //     <h3 className="text-xl font-bold">{element.name}</h3>
-              //     {element.description && (
-              //       <p className="mt-2 text-gray-400">{element.description}</p>
-              //     )}
-              //   </div>
-              // </div>
               <div className="bg-black text-white p-6 rounded-lg font-mono animate-fade-up max-w-full ">
                 <div
                   key={element.id || idx}
